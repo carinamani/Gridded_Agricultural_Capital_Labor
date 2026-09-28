@@ -11,7 +11,7 @@ import xarray as xr
 import rioxarray  
 
 
-# --- hardcoded reference grid specs, from biodiversity_no_PA.tif ---
+# --- hardcoded reference grid specs, from conservation_scenario.tif ---
 REF_TRANSFORM = Affine(10000.0, 0.0, -18039506.49,
                         0.0, -10000.0, 8871247.85)
 
@@ -61,11 +61,6 @@ def reproject_raster(in_path, resampling="sum"):
     return dst_array
 
 def array_to_raster(array, transform=REF_TRANSFORM, crs=REF_CRS, nodata=np.nan):
-    """
-    Wrap a numpy array (already on the reference grid) as a georeferenced
-    xarray DataArray, so it can be used with rioxarray methods
-    (.rio.reproject, .rio.crs, etc.) just like an array from rio.open_rasterio.
-    """
     height, width = array.shape
 
     # pixel-center coordinates, derived from the affine transform
