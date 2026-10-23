@@ -12,7 +12,7 @@ import pandas as pd
 class ThinConfig:
     name: str                          
     raw_dataset: str                   
-    threshold_km: float = 50           # empirically chosen from correlogram analysis
+    threshold_km: float = 50           
     min_regions: int = 50              # countries with fewer regions than this are left untouched
     random_seed: int = 42              
 
