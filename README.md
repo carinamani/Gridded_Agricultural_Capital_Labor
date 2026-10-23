@@ -60,7 +60,7 @@ Run the notebooks in this order. Each step reads outputs saved by the previous o
 
 Inputs are not stored in this repository. Besides the compiled datasets above, the notebooks expect the following public datasets in `Data/`:
 
-- **30x30 scenario:** Jung et al. (2021), `minshort_speciestargets_biome.id_withPA_esh10km_repruns10_ranked.tif`
+- **30x30 scenario:** Jung et al. (2021)
 - **Country boundaries:** GADM 4.1 (https://gadm.org/data.html); simplified boundaries from geoBoundaries (https://www.geoboundaries.org/simplifiedDownloads.html) for mapping
 - **Relative deprivation:** Global Gridded Relative Deprivation Index (CIESIN, 2025)
 - **Population:** Bondarenko et al. (2025), gridded population by gender and age
