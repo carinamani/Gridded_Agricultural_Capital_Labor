@@ -54,4 +54,4 @@ See [LICENSE](LICENSE).
 
 ## Contact
 
-Carina Manitius, University of Vermont: [email]
+Carina Manitius, University of Vermont: carina.manitius@uvm.edu
