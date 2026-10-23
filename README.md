@@ -15,34 +15,6 @@ This repository produces global, gridded (5 arc-min, ~10 km at the equator) esti
 
 The `Data/`, `Results/` and `Figures/` folders are excluded from the repository (see `.gitignore`). Download the datasets above and place the training and predictor files in a `Data/` folder at the repository root. Outputs are written to `Results/` and `Figures/`, which are created as needed.
 
-## Repository structure
-
-```
-.
-├── helpers/                      # Shared functions imported by the notebooks
-│   ├── step_a_config.py          # Run configuration (RunConfig) and hyperparameter search space
-│   ├── step_b_spatial_CV.py      # Country-blocked spatial cross-validation folds
-│   ├── step_c_train.py           # Model training, sample weighting, hyperparameter search
-│   ├── step_d_feature_importance.py  # Impurity and permutation importance
-│   ├── step_thin_sample.py       # Spatial thinning of the training data
-│   └── reproject_raster.py       # Reprojection to the common 10 km Mollweide grid
-├── 01_RF_model/
-│   ├── 01.1_train_RF.ipynb       # Spatial CV (diagnostic) runs and final RF / QRF models
-│   └── 01.2_evaluate_RF.ipynb    # Performance metrics (relative, absolute, country-average null model)
-├── 02_downscaling_model/
-│   ├── 02.1_ML_downscaling_model.ipynb            # Predict pixel intensities, convert to capital/labor, calibrate
-│   ├── 02.2_country_avg_model.ipynb               # Country-average null model
-│   ├── 02.3_calculate_final_intensities.ipynb     # Final intensity rasters from calibrated values
-│   └── 02.4_AOA.ipynb                             # Area of applicability
-├── 03_30x30_analysis/
-│   ├── 03.1_prep_scenario.ipynb         # Reclassify the Jung et al. (2021) scenario
-│   ├── 03.2_global_scale.ipynb          # Global exposure
-│   ├── 03.3_country_exposure.ipynb      # Exposure by country
-│   ├── 03.4a_prep_deprivation_index.ipynb  # Population-weighted deprivation percentiles
-│   └── 03.4b_distribution_analysis.ipynb   # Exposure across deprivation percentiles
-└── 03_generate_figures/              # One notebook per main figure / SI figure / SI table
-```
-
 ## Workflow
 
 Run the notebooks in this order. Each step reads outputs saved by the previous one.
