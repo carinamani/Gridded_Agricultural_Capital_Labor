@@ -5,16 +5,21 @@ import pandas as pd
 
 # function for loading the CSV which assigns countries to folds for cross-validation 
 # in the CSV, 1 = test countries, 0 = train countries 
-def load_fold_assignments(fold_csv_path):
+def load_fold_assignments(fold_csv_path, prefix=None):
     folds = pd.read_csv(fold_csv_path)
-    fold_cols = [c for c in folds.columns if c.startswith("fold_")] 
+    if prefix is None:
+        fold_cols = [c for c in folds.columns if c.startswith("fold_")]
+    else:
+        fold_cols = [c for c in folds.columns if c.startswith(f"{prefix}_fold_")]
+    if not fold_cols:
+        raise ValueError(f"No fold columns found for prefix '{prefix}' in {fold_csv_path}")
     return folds, fold_cols
 
 # function to create a list of dictionaries which id's the train and test rows for each fold  
 def make_spatial_folds(df: pd.DataFrame, config):
     
     # get filepath for fold assignments and run it through loading function
-    folds_df, fold_cols = load_fold_assignments(config.fold_assignments) 
+    folds_df, fold_cols = load_fold_assignments(config.fold_assignments, prefix=config.version)
 
     # create spatial CV splits 
     splits = []
