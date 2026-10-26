@@ -10,8 +10,8 @@ This repository produces global, gridded (5 arc-min, ~10 km at the equator) esti
 
 | Item | Location |
 |---|---|
-| Gridded capital and labor datasets (final, calibrated) | [DOI] |
-| Compiled predictor dataset and sub-national training data | [DOI] |
+| Gridded capital and labor datasets (final, calibrated) | [DOI TBD] |
+| Compiled predictor dataset and sub-national training data | [DOI TBD] |
 
 The `Data/`, `Results/` and `Figures/` folders are excluded from the repository. Download the datasets above and place the training and predictor files in a `Data/` folder. Outputs are written to `Results/` and `Figures/`.
 
